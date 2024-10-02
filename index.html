@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento via PIX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .pix-info {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .pix-info p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .qr-code img {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .qr-code p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Estilo para o campo e botão */
+        .copy-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #pix-key {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #copy-btn {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #copy-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Estilo para a mensagem de envio do comprovante */
+        .instructions {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .instructions a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .instructions a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Pague com PIX</h1>
+
+<div class="pix-info">
+    <h2>Chave PIX</h2>
+    <p><strong>Valor:</strong> R$ 40,00</p>
+
+    <!-- Campo com a chave PIX e botão para copiar -->
+    <div class="copy-container">
+        <input type="text" value="00020126930014BR.GOV.BCB.PIX013675ebe15c-a77b-4b03-94ab-3b67c76b04060231Encaminhe o comprovante pela dm520400005303986540540.005802BR5924Vitoria Gabriely Lacerda6009SAO PAULO62140510LGqxDD6cMm6304829F" id="pix-key" readonly>
+        <button id="copy-btn" onclick="copyPixKey()">Copiar código do QR Code</button>
+    </div>
+
+    <div class="qr-code">
+        <img src="40.jpeg" alt="QR Code PIX">
+        <p>Escaneie o QR Code acima para pagar R$ 40,00</p>
+    </div>
+
+    <!-- Instruções para enviar o comprovante -->
+    <div class="instructions">
+        <p>Após realizar o pagamento, envie o comprovante junto com seu nome completo pela DM da nossa página no Instagram:</p>
+        <p><a href="https://www.instagram.com/2k24_halloween" target="_blank">@2k24_halloween</a></p>
+    </div>
+</div>
+
+<script>
+    function copyPixKey() {
+        // Seleciona o campo de texto contendo a chave PIX
+        var pixKeyField = document.getElementById("pix-key");
+
+        // Seleciona o conteúdo do campo
+        pixKeyField.select();
+        pixKeyField.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+        // Copia o conteúdo para a área de transferência
+        document.execCommand("copy");
+
+        // Alerta ou mensagem ao usuário
+        alert("Chave PIX copiada: " + pixKeyField.value);
+    }
+</script>
+
+</body>
+</html>
